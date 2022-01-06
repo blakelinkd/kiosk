@@ -1,0 +1,3 @@
+<li (click)="toggleActiveProduct(value)" class="list-group-item" [ngClass]="{ 'active': isActive(value)}" #value>
+    {{ product.name }}
+</li>

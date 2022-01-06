@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div id="input-form" class="col-xs-12">
+
+            <form>
+                <div class="form-group form-outline">
+                    <label for="infoInput">New Info</label>
+                    <textarea class="form-control w-75" id="inputTextArea" #info>{{ oldInfo }}</textarea>
+                    <!-- <input id="infoInput" type="text" class="form-control"
+                    #info
+                    > -->
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button (click)="updateInfoThenReturn(info.value)" class="btn btn-success mt-4">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>    
+
+
+

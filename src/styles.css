@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+.stipple2Background {
+    background-image: url(/assets/images/stipple2.png);
+    background-repeat: repeat;
+    animation: pulse 10s infine;
+}
+
+* {
+    font-family: 'NotoSerif-Regular';
+    src: url(/assets/fonts/NotoSerif-Regular.ttf) format("woff")
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+a:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.center-text {
+    text-align: center;
+}
