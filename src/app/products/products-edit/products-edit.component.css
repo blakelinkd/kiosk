@@ -1,0 +1,30 @@
+input, textarea {
+    margin-bottom: 1.75rem;
+}
+
+#product-update-form {
+    width: 80%;
+    border: 2px solid rgba(173, 216, 230, 0.192);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+ul {
+    /* height: 500px; */
+    overflow:hidden; overflow-y:scroll;
+}
+
+#product-list {
+    height: 50vh;
+    border: 2px solid rgba(255, 202, 44, 0.192);
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+#create-new-product-button {
+
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}

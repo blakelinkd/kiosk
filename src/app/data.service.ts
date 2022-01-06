@@ -9,17 +9,22 @@ export class DataService {
   private info: string = "This is the default info"
   private products: Array<Product> = new Array<Product>();
   public activeProduct : string | any
+  public projectPrototype : Product | any
   constructor() { 
     this.addFakeProducts()
     
   }
 
+  public createProduct(product: Product) {
+  }
+
+  
   public getActiveProduct() {
     console.log('called get active product: ' + this.activeProduct)
     return this.activeProduct;
   }
 
-  findProductByName(target: string) {
+  public findProductByName(target: string) {
     for(let i = 0; i < this.products.length; i++) {
       console.log(`list name: |${ this.products[i].name }| target:|${target.trim()}|`)
       if(this.products[i].name === target.trim()) {

@@ -24,8 +24,15 @@ export class ProductsEditComponent implements OnInit {
     this.activeProduct = this.products.find(prop => prop.name === target.textContent)
   }
   
+  createNewProduct() {
+    // create the new product and set it as active
+    this.activeProduct = new Product('New Product', 'Update Product Info')
+    // this.dataService.createProduct(new Product('New Product', 'Update Product Info'))
+
+  }
   getActiveProduct() {
-    this.dataService.getActiveProduct();
+    this.activeProduct = this.dataService.findProductByName(this.dataService.getActiveProduct())
+    //this.dataService.getActiveProduct();
     return this.activeProduct;
   }
   getProducts() {

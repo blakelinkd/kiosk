@@ -6,7 +6,7 @@ export class Product {
     public imgUrl: string | undefined
 
 
-    constructor(name: string, description: string, price=0.0, taxes=6.0, imgUrl: string) {
+    constructor(name: string, description: string = 'default', price=0.0, taxes=6.0, imgUrl: string ='') {
         this.name = name
         this.description = description
         this.price = price

@@ -1,17 +1,56 @@
 <div class="container-fluid">
   <div class="row">
-      <div class="col-sm-4">
-        <ul class="list-group" >
+    <div id="product-list" class="col-sm-4">
+      <ul class="list-group">
+        <app-products-list-element
+          [product]="product"
+          *ngFor="let product of getProducts()"
+        ></app-products-list-element>
+      </ul>
+      <button (click)="createNewProduct()" id="create-new-product-button" class="btn btn-warning">Create New Product</button>
+    </div>
+    <div class="col-sm-2">
+      <app-product-card [product]="getActiveProduct()"></app-product-card>
+    </div>
+    <div class="col-sm-6">
+      <form id="product-update-form">
+        <div class="form-group">
+          <label for="product-name-input">Product Name</label>
+          <input
+            id="product-name-input"
+            [(ngModel)]="getActiveProduct().name"
+            name="name"
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+        </div>
 
-      <app-products-list-element [product]="product" *ngFor="let product of getProducts()"></app-products-list-element>
-
-        </ul>
-      </div>
-      <div class="col-lg-8">
-        <app-product-card
-            [product]="getActiveProduct()"
-            
-            ></app-product-card>
-      </div>
+        <div class="form-group">
+          <label for="description">Product Description</label>
+          <textarea
+            [(ngModel)]="getActiveProduct().description"
+            name="description"
+            class="form-control"
+            id="product-description"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <label for="product-name">Price</label>
+          <input
+            id="product-name-input"
+            [(ngModel)]="getActiveProduct().price"
+            name="price"
+            type="text"
+            class="form-control"
+            id="product-price"
+            placeholder="name@example.com"
+          />
+        </div>
+        <button class="btn btn-info">Submit</button>
+      </form>
+    </div>
   </div>
 </div>

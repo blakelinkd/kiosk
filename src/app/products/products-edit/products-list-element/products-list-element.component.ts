@@ -10,7 +10,7 @@ import { Product } from 'src/app/Models/Product';
 export class ProductsListElementComponent implements OnInit {
 
   @Input() public product: Product | any
-  @Input() activeProduct: string = ''
+  @Input() activeProduct: Product | any
 
   constructor(private dataService: DataService) { 
   }
@@ -25,8 +25,10 @@ export class ProductsListElementComponent implements OnInit {
     
   }
   isActive(target: HTMLElement) {
+    console.log('isActive: ' + target.textContent)
+    console.log(`---------------------> target: ${target.textContent} === data: ${this.dataService.getActiveProduct().name}`)
     if(target.textContent === this.dataService.getActiveProduct()) {
-      console.log('isActive')
+      
       return true;
     }
     else {
