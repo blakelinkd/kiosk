@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivationEnd } from '@angular/router';
 import { DataService } from 'src/app/data.service';
 import { Product } from 'src/app/Models/Product';
 
@@ -10,29 +11,32 @@ import { Product } from 'src/app/Models/Product';
 export class ProductsEditComponent implements OnInit {
 
   public products: Array<Product> = new Array<Product>();
-  public activeProduct: Product | any
-  public lastActiveProduct: Product | any
-  // @Output() toggleActiveEvent = new EventEmitter<HTMLInputElement>();
+  public activeProduct: Product
+  public productPrototype: Product | any
   constructor(private dataService: DataService) {
     this.products = this.dataService.getProducts();
     this.activeProduct = this.products[0]
+    this.productPrototype = this.activeProduct
 
   }
 
-  setActiveProduct(target: HTMLElement) {
-    console.log("🚀 ~ file: products-edit.component.ts ~ line 23 ~ ProductsEditComponent ~ setActiveProduct ~ target", target)
-    this.activeProduct = this.products.find(prop => prop.name === target.textContent)
-  }
   
   createNewProduct() {
-    // create the new product and set it as active
-    this.activeProduct = new Product('New Product', 'Update Product Info')
-    // this.dataService.createProduct(new Product('New Product', 'Update Product Info'))
+    let product =  new Product("New Product", "Describe the new product", 622.62, 44, 'assets/images/cappuccino.png')
+    this.productPrototype = product
+    this.dataService.setActiveProduct(product)
+
+  }
+
+  saveNewProduct() {
+    this.dataService.createProduct(this.productPrototype)
 
   }
   getActiveProduct() {
-    this.activeProduct = this.dataService.findProductByName(this.dataService.getActiveProduct())
-    //this.dataService.getActiveProduct();
+    this.activeProduct = this.dataService.getActiveProduct()
+    console.log("🚀 ~ file: products-edit.component.ts ~ line 39 ~ ProductsEditComponent ~ getActiveProduct ~ getActiveProduct", this.activeProduct)
+    
+    // this.activeProduct = this.dataService.findProductByName(this.dataService.getActiveProduct())
     return this.activeProduct;
   }
   getProducts() {
@@ -40,7 +44,6 @@ export class ProductsEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('--- ' + this.products)
   }
 
 }

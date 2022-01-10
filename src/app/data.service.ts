@@ -6,27 +6,40 @@ import { Product } from './Models/Product';
 })
 export class DataService {
 
-  private info: string = "This is the default info"
+  private info: string | null = "This is the default info" 
   private products: Array<Product> = new Array<Product>();
-  public activeProduct : string | any
+  public activeProduct : Product
   public projectPrototype : Product | any
   constructor() { 
-    this.addFakeProducts()
     
+    let productsFromLocal = localStorage.getItem('products')
+    if(productsFromLocal) {
+      this.products = JSON.parse(productsFromLocal)
+    }
+    else {
+      this.addFakeProducts()
+    }
+    this.activeProduct = this.products[0];
+    let infoFromLocal = this.getInfo()
+    if(infoFromLocal) {
+      this.info = infoFromLocal
+    }
   }
 
   public createProduct(product: Product) {
+    this.products.push(product)
+    this.activeProduct = product
+    localStorage.setItem('products', JSON.stringify(this.products))
+
   }
 
-  
+
   public getActiveProduct() {
-    console.log('called get active product: ' + this.activeProduct)
     return this.activeProduct;
   }
 
   public findProductByName(target: string) {
     for(let i = 0; i < this.products.length; i++) {
-      console.log(`list name: |${ this.products[i].name }| target:|${target.trim()}|`)
       if(this.products[i].name === target.trim()) {
         console.log('yes')
         return this.products[i]
@@ -35,33 +48,26 @@ export class DataService {
     return -1
   }
 
-  setActiveProduct(target: string) {
-    console.log("🚀 ~ file: data.service.ts ~ line 23 ~ DataService ~ setActiveProduct ~ target", target)
+  setActiveProduct(target: Product) {
     //this.activeProduct = this.findProductByName(target)
-    this.activeProduct = target;
-    if(!this.activeProduct) {
-    console.log("🚀 ~ file: data.service.ts ~ line 26 ~ DataService ~ setActiveProduct ~ activeProduct", this.activeProduct)
-      
-    }
+    this.activeProduct = target
   }
 
 
   addFakeProducts() {
-    this.addProduct("cheese ball", "a hard ball of cheese", 22.2, 44, 'assets/images/cappuccino.png')
-    this.addProduct("cup of farts", "a hard ball of cheese", 122.2, 44, 'assets/images/cappuccino.png')
-    this.addProduct("rock", "a hard ball of cheese", 242.2, 44, 'assets/images/cappuccino.png')
-    this.addProduct("stinky", "a hard ball of cheese", 232.2, 44, 'assets/images/cappuccino.png')
-    this.setActiveProduct('cheese ball')
+    this.products?.push( new Product("cheese ball", "a hard ball of cheese", 22.2, 44, 'assets/images/cappuccino.png'))
+    this.products?.push( new Product("2", "a hard ball of cheese", 622.62, 44, 'assets/images/cappuccino.png'))
+    this.products?.push( new Product("3", "a hard ball of cheese", 122.2, 44, 'assets/images/cappuccino.png'))
+
+
   }
-  changeInfo(newInfo: string) {
+  setInfo(newInfo: string) {
     this.info = newInfo
   }
-
-  addProduct(name: string, description: string, price: number, taxes: number, imgUrl: string) {
-    this.products?.push(
-      new Product(name, description, price, taxes, imgUrl)
-    )
+  getInfo() {
+    return localStorage.getItem('info')
   }
+
   getProducts() {
     return this.products;
   }

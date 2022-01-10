@@ -17,6 +17,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
 import { ProductCard2Component } from './product-card2/product-card2.component';
 import { ProductsListElementComponent } from './products/products-edit/products-list-element/products-list-element.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProductsListElementComponent } from './products/products-edit/products-
     HeroesComponent,
     ProductCard2Component,
     ProductsListElementComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,

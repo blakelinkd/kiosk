@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core'
 import { Router } from '@angular/router';
-import { DataService } from '../../data/data.service'
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-info-edit',
@@ -14,7 +14,7 @@ export class InfoEditComponent implements OnInit {
   @Output() update: EventEmitter<string> = new EventEmitter<string>()
 
   newInfo: string = ''
-  oldInfo: string = ''
+  oldInfo: string | null = ''
   constructor(private dataService: DataService, private router: Router) {
     this.oldInfo = dataService.getInfo()
   }

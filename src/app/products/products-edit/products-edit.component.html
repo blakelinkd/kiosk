@@ -1,4 +1,5 @@
 <div class="container-fluid">
+  <app-nav></app-nav>
   <div class="row">
     <div id="product-list" class="col-sm-4">
       <ul class="list-group">
@@ -18,7 +19,7 @@
           <label for="product-name-input">Product Name</label>
           <input
             id="product-name-input"
-            [(ngModel)]="getActiveProduct().name"
+            [(ngModel)]="productPrototype.name"
             name="name"
             type="text"
             class="form-control"
@@ -30,7 +31,7 @@
         <div class="form-group">
           <label for="description">Product Description</label>
           <textarea
-            [(ngModel)]="getActiveProduct().description"
+            [(ngModel)]="productPrototype.description"
             name="description"
             class="form-control"
             id="product-description"
@@ -41,7 +42,7 @@
           <label for="product-name">Price</label>
           <input
             id="product-name-input"
-            [(ngModel)]="getActiveProduct().price"
+            [(ngModel)]="productPrototype.price"
             name="price"
             type="text"
             class="form-control"
@@ -49,7 +50,7 @@
             placeholder="name@example.com"
           />
         </div>
-        <button class="btn btn-info">Submit</button>
+        <button (click)="saveNewProduct()" class="btn btn-info">Submit</button>
       </form>
     </div>
   </div>

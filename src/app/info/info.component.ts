@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '@angular/router';
-import { DataService } from '../data/data.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-info',
@@ -9,7 +9,7 @@ import { DataService } from '../data/data.service';
 })
 export class InfoComponent implements OnInit {
 
-  public info: string = 'Default Info'
+  public info: string | null = 'Default Info'
 
 
   constructor(private dataService: DataService){
