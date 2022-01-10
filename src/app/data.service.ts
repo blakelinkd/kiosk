@@ -55,9 +55,9 @@ export class DataService {
 
 
   addFakeProducts() {
-    this.products?.push( new Product("cheese ball", "a hard ball of cheese", 22.2, 44, 'assets/images/cappuccino.png'))
-    this.products?.push( new Product("2", "a hard ball of cheese", 622.62, 44, 'assets/images/cappuccino.png'))
-    this.products?.push( new Product("3", "a hard ball of cheese", 122.2, 44, 'assets/images/cappuccino.png'))
+    this.products?.push( new Product("Large Coffee", "A large coffee with no cream or sugar.", 2.24, 44, 'assets/images/cappuccino.png'))
+    this.products?.push( new Product("Cappucinno", "a jizz of frothy cream floating on the top", 622.62, 44, 'assets/images/cappuccino.png'))
+    this.products?.push( new Product("Fruity Energy Drink", "Taste like red bull with aspirin in it.", 122.2, 44, 'assets/images/cappuccino.png'))
 
 
   }

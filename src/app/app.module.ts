@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { ProductCard2Component } from './product-card2/product-card2.component';
 import { ProductsListElementComponent } from './products/products-edit/products-list-element/products-list-element.component';
 import { NavComponent } from './nav/nav.component';
+import { ProductEditorComponent } from './products/products-edit/product-editor/product-editor.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { NavComponent } from './nav/nav.component';
     ProductCard2Component,
     ProductsListElementComponent,
     NavComponent,
+    ProductEditorComponent,
   ],
   imports: [
     BrowserModule,

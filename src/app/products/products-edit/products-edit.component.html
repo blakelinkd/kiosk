@@ -14,7 +14,8 @@
       <app-product-card [product]="getActiveProduct()"></app-product-card>
     </div>
     <div class="col-sm-6">
-      <form id="product-update-form">
+      <app-product-editor [product]="getActiveProduct()"></app-product-editor>
+      <!-- <form id="product-update-form">
         <div class="form-group">
           <label for="product-name-input">Product Name</label>
           <input
@@ -51,7 +52,7 @@
           />
         </div>
         <button (click)="saveNewProduct()" class="btn btn-info">Submit</button>
-      </form>
+      </form> -->
     </div>
   </div>
 </div>

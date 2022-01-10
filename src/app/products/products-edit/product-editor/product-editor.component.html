@@ -1,0 +1,53 @@
+<div class="container">
+
+  <form id="product-update-form">
+      <div class="form-group">
+        <label for="product-name-input">Product Name</label>
+        <input
+          id="product-name-input"
+          [(ngModel)]="product.name"
+          name="name"
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="name@example.com"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Product Description</label>
+        <textarea
+          [(ngModel)]="product.description"
+          name="description"
+          class="form-control"
+          id="product-description"
+          rows="3"
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label for="product-image-input">Product Image</label>
+        <input
+          id="product-image-input"
+          [(ngModel)]="product.imgUrl"
+          name="image"
+          type="text"
+          class="form-control"
+          id="exampleFormControlInput1"
+          placeholder="http://myImage.jpg"
+        />
+      </div>
+      <div class="form-group">
+        <label for="product-name">Price</label>
+        <input
+          id="product-name-input"
+          [(ngModel)]="product.price"
+          name="price"
+          type="text"
+          class="form-control"
+          id="product-price"
+          placeholder="name@example.com"
+        />
+      </div>
+      <button (click)="saveNewProduct()" class="btn btn-info">Submit</button>
+    </form>
+</div>
