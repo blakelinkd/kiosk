@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
-import { MyCounterComponent } from './my-counter/my-counter.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -13,9 +12,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { InfoEditComponent } from './info/info-edit/info-edit.component';
 import { ProductsEditComponent } from './products/products-edit/products-edit.component';
 import { HeaderComponent } from './header/header.component';
-import { HeroesComponent } from './heroes/heroes.component';
 import { FormsModule } from '@angular/forms';
-import { ProductCard2Component } from './product-card2/product-card2.component';
 import { ProductsListElementComponent } from './products/products-edit/products-list-element/products-list-element.component';
 import { NavComponent } from './nav/nav.component';
 import { ProductEditorComponent } from './products/products-edit/product-editor/product-editor.component';
@@ -24,7 +21,6 @@ import { ProductEditorComponent } from './products/products-edit/product-editor/
   declarations: [
     AppComponent,
     ProductsComponent,
-    MyCounterComponent,
     HomeComponent,
     AboutComponent,
     ContactComponent,
@@ -34,8 +30,6 @@ import { ProductEditorComponent } from './products/products-edit/product-editor/
     InfoEditComponent,
     ProductsEditComponent,
     HeaderComponent,
-    HeroesComponent,
-    ProductCard2Component,
     ProductsListElementComponent,
     NavComponent,
     ProductEditorComponent,
