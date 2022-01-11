@@ -1,6 +1,6 @@
 .card {
-    border: 1px solid gray;
-    width: fit-content;
+    /* border: 1px solid gray; */
+    max-width: 18rem;
     margin-bottom: 40px;
 
 }

@@ -3,10 +3,13 @@
   <div class="row">
     <div id="product-list" class="col-sm-4">
       <ul class="list-group">
-        <app-products-list-element
-          [product]="product"
-          *ngFor="let product of getProducts()"
-        ></app-products-list-element>
+        <div class="row" *ngFor="let product of getProducts()">
+          <app-products-list-element
+            [product]="product"
+            
+          ></app-products-list-element>
+
+        </div>
       </ul>
       <button (click)="createNewProduct()" id="create-new-product-button" class="btn btn-warning">Create New Product</button>
     </div>

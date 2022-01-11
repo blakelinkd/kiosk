@@ -24,6 +24,7 @@ export class ProductsEditComponent implements OnInit {
   createNewProduct() {
     let product =  new Product("New Product", "Describe the new product", 622.62, 44, 'assets/images/cappuccino.png')
     this.productPrototype = product
+    this.dataService.createProduct(product)
     this.dataService.setActiveProduct(product)
 
   }
@@ -34,13 +35,17 @@ export class ProductsEditComponent implements OnInit {
   }
   getActiveProduct() {
     this.activeProduct = this.dataService.getActiveProduct()
-    console.log("🚀 ~ file: products-edit.component.ts ~ line 39 ~ ProductsEditComponent ~ getActiveProduct ~ getActiveProduct", this.activeProduct)
-    
     // this.activeProduct = this.dataService.findProductByName(this.dataService.getActiveProduct())
     return this.activeProduct;
   }
+  
   getProducts() {
-    return this.products;
+    return this.dataService.getProducts()
+    // return this.products;
+  }
+  
+  ngDoCheck() {
+    this.products = this.dataService.getProducts()
   }
 
   ngOnInit(): void {

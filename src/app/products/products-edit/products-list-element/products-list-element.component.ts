@@ -15,7 +15,6 @@ export class ProductsListElementComponent implements OnInit {
   constructor(private dataService: DataService) { 
   }
   toggleActiveProduct(target: Product) {
-    console.log("🚀 ~ file: products-list-element.component.ts ~ line 18 ~ ProductsListElementComponent ~ toggleActiveProduct ~ target", target)
     this.dataService.setActiveProduct(target);
     this.activeProduct = this.dataService.getActiveProduct();
   }

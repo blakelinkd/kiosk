@@ -6,7 +6,7 @@ import { Product } from './Models/Product';
 })
 export class DataService {
 
-  private info: string | null = "This is the default info" 
+  private info: string | null = "Default info" 
   private products: Array<Product> = new Array<Product>();
   public activeProduct : Product
   public projectPrototype : Product | any
@@ -26,13 +26,14 @@ export class DataService {
     }
   }
 
-  public createProduct(product: Product) {
-    this.products.push(product)
+  public createProduct(product: Product | any) {
+    let newList = this.products.filter( (newProduct) => newProduct.name !== product.name )
+    newList.push(product)
+    this.products = newList
     this.activeProduct = product
     localStorage.setItem('products', JSON.stringify(this.products))
 
   }
-
 
   public getActiveProduct() {
     return this.activeProduct;
@@ -41,7 +42,6 @@ export class DataService {
   public findProductByName(target: string) {
     for(let i = 0; i < this.products.length; i++) {
       if(this.products[i].name === target.trim()) {
-        console.log('yes')
         return this.products[i]
       }
     }
@@ -53,14 +53,12 @@ export class DataService {
     this.activeProduct = target
   }
 
-
   addFakeProducts() {
     this.products?.push( new Product("Large Coffee", "A large coffee with no cream or sugar.", 2.24, 44, 'assets/images/cappuccino.png'))
     this.products?.push( new Product("Cappucinno", "a jizz of frothy cream floating on the top", 622.62, 44, 'assets/images/cappuccino.png'))
     this.products?.push( new Product("Fruity Energy Drink", "Taste like red bull with aspirin in it.", 122.2, 44, 'assets/images/cappuccino.png'))
-
-
   }
+
   setInfo(newInfo: string) {
     this.info = newInfo
   }
@@ -69,6 +67,10 @@ export class DataService {
   }
 
   getProducts() {
-    return this.products;
+    let sorted = this.products.sort( (a, b) => { 
+      return a['name'] === b['name']? 0 : a['name'] > b['name'] ? 1 : -1
+     } )
+     return sorted.filter((prod) => prod.name !== 'New Product' )
+    // return this.products;
   }
 }

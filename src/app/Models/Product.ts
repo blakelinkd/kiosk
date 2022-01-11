@@ -1,5 +1,5 @@
 export class Product {
-    public name: string | undefined
+    public name: string 
     public description: string | undefined
     public price: number | undefined
     public taxes: number | undefined

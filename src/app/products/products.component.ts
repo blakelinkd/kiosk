@@ -32,11 +32,9 @@ export class ProductsComponent implements OnInit {
           
         }
         
-        
         ngOnInit(): void {
           this.products = this.dataService.getProducts();
           this.activeProduct = this.dataService.getActiveProduct();
-          console.log(this.products)
           
   }
 
