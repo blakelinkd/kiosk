@@ -1,9 +1,9 @@
 .card {
     /* border: 1px solid gray; */
-    max-width: 18rem;
+    min-height: 18rem;
     margin-bottom: 40px;
 
 }
-img {
-    
+.card-title {
+    font-size: 2rem;
 }

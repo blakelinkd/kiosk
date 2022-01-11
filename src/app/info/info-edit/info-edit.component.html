@@ -8,14 +8,16 @@
 
             <form>
                 <div class="form-group form-outline">
+                    <label for="headingInput">New Heading</label>
+                    <textarea type="text" class="form-control w-75" id="headingInput" #heading>{{ oldInfo.getTitle() }}</textarea>
                     <label for="infoInput">New Info</label>
-                    <textarea class="form-control w-75" id="inputTextArea" #info>{{ oldInfo }}</textarea>
+                    <textarea class="form-control w-75" id="inputTextArea" #content>{{ oldInfo.getContent() }}</textarea>
                     <!-- <input id="infoInput" type="text" class="form-control"
                     #info
                     > -->
                     <div class="row">
                         <div class="col-xs-12">
-                            <button (click)="updateInfoThenReturn(info.value)" class="btn btn-success mt-4">Send</button>
+                            <button (click)="updateInfoThenReturn(heading.value, content.value)" class="btn btn-success mt-4">Send</button>
                         </div>
                     </div>
                 </div>

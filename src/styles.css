@@ -6,8 +6,10 @@
 }
 
 * {
+    
     font-family: 'NotoSerif-Regular';
-    src: url(/assets/fonts/NotoSerif-Regular.ttf) format("woff")
+    @import url('/assets/fonts/NotoSerif-Regular.ttf');
+    
 }
 
 a {

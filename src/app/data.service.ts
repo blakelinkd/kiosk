@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Info } from './Models/Info';
 import { Product } from './Models/Product';
 
 @Injectable({
@@ -6,7 +7,9 @@ import { Product } from './Models/Product';
 })
 export class DataService {
 
-  private info: string | null = "Default info" 
+  
+  private info: Info = new Info("Default Heading", "Default Content")
+
   private products: Array<Product> = new Array<Product>();
   public activeProduct : Product
   public projectPrototype : Product | any
@@ -20,10 +23,6 @@ export class DataService {
       this.addFakeProducts()
     }
     this.activeProduct = this.products[0];
-    let infoFromLocal = this.getInfo()
-    if(infoFromLocal) {
-      this.info = infoFromLocal
-    }
   }
 
   public createProduct(product: Product | any) {
@@ -59,11 +58,12 @@ export class DataService {
     this.products?.push( new Product("Fruity Energy Drink", "Taste like red bull with aspirin in it.", 122.2, 44, 'assets/images/cappuccino.png'))
   }
 
-  setInfo(newInfo: string) {
+  setInfo(newInfo: Info) {
     this.info = newInfo
   }
   getInfo() {
-    return localStorage.getItem('info')
+    return this.info
+    // return localStorage.getItem('info')
   }
 
   getProducts() {

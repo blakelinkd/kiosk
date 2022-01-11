@@ -1,9 +1,9 @@
 <div id="main" class="container">
   <div class="row">
-      <a routerLink="/products-edit"><h1 class="center-text">Info</h1></a>
+      <a routerLink="/info-edit"><h1 class="center-text">{{ info.getTitle() }}</h1></a>
   </div>
   <div class="row">
-      {{ info }}
+      {{ info.getContent() }}
       
   </div>
   
