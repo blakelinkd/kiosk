@@ -3,14 +3,22 @@
         <a routerLink="/products-edit"><h1 class="center-text">Our Menu</h1></a>
     </div>
     <div class="row">
-        <div class="col-lg-4 align-items-center" *ngFor="let product of getProducts()">
-            <app-product-card
+
+      <div class="col-lg-4 align-items-center" *ngFor="let product of getProducts()">
+
+        <div class="col-lg-4 align-items-center" *ngIf="getProducts().length === 0">
+          <a routerLink="/products-edit">Click here to add products to the menu.</a>
+
+      </div>
+
+
+        <app-product-card
             [product]="product"
-            
+
             ></app-product-card>
-            
+
         </div>
-        
+
     </div>
-    
+
 </div>
