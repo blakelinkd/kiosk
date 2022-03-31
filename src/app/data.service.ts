@@ -8,10 +8,11 @@ import { Product } from './Models/Product';
 export class DataService {
 
 
-  private info: Info = new Info("Default Heading", "Default Content")
+  private info: Info = new Info("COFFEE SHOP", "Enjoy Cowboy Coffee that’s fresh roasted in Jackson Hole and a host of other drinks including fruit and coffee smoothies, as well as breakfast sandwiches, fresh baked cinnamon rolls, croissants, paninis, salads, soup & our signature Buffalo Chili. Check out our menus (food & beverage).")
 
   private products: Array<Product> = new Array<Product>();
   public activeProduct : Product
+  public lastActiveProduct : Product | any
   public projectPrototype : Product | any
   constructor() {
 
@@ -30,12 +31,15 @@ export class DataService {
     newList.push(product)
     this.products = newList
     this.activeProduct = product
+    this.lastActiveProduct = product
+
     localStorage.setItem('products', JSON.stringify(this.products))
 
   }
 
   public deleteProduct(product: Product | any) {
-    let newList = this.products.filter( (newProduct) => newProduct.name !== product.name )
+    let newList = this.products.filter( (newProduct) => newProduct.name !== this.activeProduct.name )
+    this.activeProduct = this.lastActiveProduct!
     //newList.push(product)
     this.products = newList
     // this.activeProduct = product

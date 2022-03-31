@@ -1,11 +1,9 @@
 <div id="main" class="container">
-  <div class="row">
-      <a routerLink="/info-edit"><h1 class="center-text">{{ info.getTitle() }}</h1></a>
-  </div>
-  <div class="row">
-      {{ info.getContent() }}
-      
-  </div>
-  
+
+  <div class="content">
+    <a routerLink="/info-edit"><h1 class="center-text">{{ info.getTitle() }}</h1></a>
+		<p>{{ info.getContent() }}</p>
+	</div>
+
 </div>
 
