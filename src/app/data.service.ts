@@ -34,6 +34,16 @@ export class DataService {
 
   }
 
+  public deleteProduct(product: Product | any) {
+    let newList = this.products.filter( (newProduct) => newProduct.name !== product.name )
+    //newList.push(product)
+    this.products = newList
+    // this.activeProduct = product
+    localStorage.setItem('products', JSON.stringify(this.products))
+
+  }
+
+
   public getActiveProduct() {
     return this.activeProduct;
   }

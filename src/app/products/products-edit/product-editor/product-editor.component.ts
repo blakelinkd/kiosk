@@ -18,6 +18,12 @@ export class ProductEditorComponent implements OnInit {
     )
 
   }
+
+  deleteProduct() {
+    this.dataService.deleteProduct(
+      this.dataService.activeProduct
+    )
+  }
   ngOnInit(): void {
   }
 
